@@ -6,7 +6,8 @@ namespace A1_ZweiThreadsZaehlenWinner;
 class Program
 {
    
-    
+    static int acount = 0;
+    static int bcount = 101;
     public static void Main(string[] args)
     {
         Console.WriteLine("Übung 1: Zwei Threads – Zählen & Winner");
@@ -18,25 +19,38 @@ class Program
         thread1.Join();
         thread2.Join();
         
+   
         
         
     }
     
     private static void CountUpThreadA()
     {
+        acount = i;
         for (int i = 1; i <= 100; i++)
         {
             Console.WriteLine($"{i}");
             Thread.Sleep(100);
-        }    
+        if (bcount == acount){
+            break;
+        }
+        
+        }
+            
     }
     
     private static void CountDownThreadB()
     {
+        bcount = i;
         for (int i = 100; i >= 1; i--)
         {
             Console.WriteLine($"{i}");
             Thread.Sleep(100);
+        if (acount == bcount){
+            break;
+        
         }
+        
     }
+}
 }

@@ -26,9 +26,10 @@ class Program
     
     private static void CountUpThreadA()
     {
-        acount = i;
+        
         for (int i = 1; i <= 100; i++)
         {
+            acount = i;
             Console.WriteLine($"{i}");
             Thread.Sleep(100);
         if (bcount == acount){
@@ -41,9 +42,10 @@ class Program
     
     private static void CountDownThreadB()
     {
-        bcount = i;
+        
         for (int i = 100; i >= 1; i--)
         {
+            bcount = i;
             Console.WriteLine($"{i}");
             Thread.Sleep(100);
         if (acount == bcount){

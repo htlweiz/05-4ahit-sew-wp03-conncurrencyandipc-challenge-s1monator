@@ -10,17 +10,33 @@ class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Übung 1: Zwei Threads – Zählen & Winner");
+        thread1 = new Thread(CountUpThreadA);
+        thread2 = new Thread(CountDownThreadB);
+        thread1.Start();
+        thread2.Start();
+
+        thread1.Join();
+        thread2.Join();
+        
         
         
     }
     
     private static void CountUpThreadA()
     {
-        
+        for (int i = 1; i <= 100; i++)
+        {
+            Console.WriteLine($"{i}");
+            Thread.Sleep(100);
+        }    
     }
     
     private static void CountDownThreadB()
     {
-       
+        for (int i = 100; i >= 1; i--)
+        {
+            Console.WriteLine($"{i}");
+            Thread.Sleep(100);
+        }
     }
 }

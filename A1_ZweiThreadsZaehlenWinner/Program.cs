@@ -10,8 +10,8 @@ class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Übung 1: Zwei Threads – Zählen & Winner");
-        thread1 = new Thread(CountUpThreadA);
-        thread2 = new Thread(CountDownThreadB);
+        Thread thread1 = new Thread(CountUpThreadA);
+        Thread thread2 = new Thread(CountDownThreadB);
         thread1.Start();
         thread2.Start();
 
